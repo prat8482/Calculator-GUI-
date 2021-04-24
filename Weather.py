@@ -1,4 +1,4 @@
-import tkinter as tk
+from tkinter import *
 import requests
 
 HEIGHT=700
@@ -27,28 +27,28 @@ def get_weather(city):
     label['text']=format_response(weather) 
 
 
-root=tk.Toplevel()
+root=Tk()
 
-canvas=tk.Canvas(root, height=HEIGHT, width=WIDTH)
+canvas=Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
-bg_image=tk.PhotoImage(file=r'C:\Users\prath\Pictures\landscape3.png')
-bg_label=tk.Label(root, image=bg_image)
+bg_image=PhotoImage(file=r'C:\Users\prath\Pictures\landscape3.png')
+bg_label=Label(root, image=bg_image)
 bg_label.place(relwidth=1, relheight=1)
 
-frame=tk.Frame(root, bg='#80c1ff', bd=5)
+frame=Frame(root, bg='#80c1ff', bd=5)
 frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
 
-entry=tk.Entry(frame, font=40)
+entry=Entry(frame, font=40)
 entry.place(relwidth=0.65, relheight=1)
 
-button=tk.Button(frame, text='Get Weather', font=40, command= lambda:get_weather(entry.get()))
+button=Button(frame, text='Get Weather', font=40, command= lambda:get_weather(entry.get()))
 button.place(relx=0.7, relheight=1, relwidth=0.3)
 
-lower_frame=tk.Frame(root, bg='#80c1ff', bd=10)
+lower_frame=Frame(root, bg='#80c1ff', bd=10)
 lower_frame.place(relx=0.5, rely=0.3, relwidth=0.75, relheight=0.6, anchor='n')
 
-label=tk.Label(lower_frame, font=('Courier',18),anchor='nw', justify='left')
+label=Label(lower_frame, font=('Courier',18),anchor='nw', justify='left')
 label.place(relwidth=1, relheight=1)
 
 root.mainloop()
